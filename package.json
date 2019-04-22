@@ -1,9 +1,22 @@
 {
-  "name": "tut",
+  "name": "electron-basic-quickstart",
   "version": "1.0.0",
-  "description": "Tutorial",
-  "keywords": [],
-  "main": "index.js",
+  "description": "A Basic Boilerplate For An Electron App",
+  "keywords": [
+    "tutorial",
+    "electron",
+    "quickstart"
+  ],
+  "author": "Aman Kumar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amantheroot/electron-basic-quickstart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amantheroot/electron-basic-quickstart/issues"
+  },
+  "main": "main.js",
   "config": {
     "productName": "tutbuild"
   },
@@ -23,8 +36,6 @@
     "build": "npm run pack:reset && npm run build:win64 && npm run build:win32",
     "build:setup": "build -w"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "electron-reload": "^1.4.0"
   },
