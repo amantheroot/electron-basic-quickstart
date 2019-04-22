@@ -1,0 +1,36 @@
+{
+  "name": "tut",
+  "version": "1.0.0",
+  "description": "Tutorial",
+  "keywords": [],
+  "main": "index.js",
+  "config": {
+    "productName": "tutbuild"
+  },
+  "build": {
+    "appId": "com.tut.tutty.tutbuild",
+    "productName": "tutbuild"
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack:reset": "rm -rf dist",
+    "pack:win64": "electron-packager . %npm_package_config_productName% --out=dist/win64 --platform=win32 --arch=x64 app-version=1.0 --icon=resources/icon.ico",
+    "asar:win64": "asar pack dist/win64/%npm_package_config_productName%-win32-x64/resources/app dist/win64/%npm_package_config_productName%-win32-x64/resources/app.asar",
+    "build:win64": "npm run pack:win64 && npm run asar:win64",
+    "pack:win32": "electron-packager . %npm_package_config_productName% --out=dist/win32 --platform=win32 --arch=ia32 app-version=1.0 --icon=resources/icon.ico",
+    "asar:win32": "asar pack dist/win32/%npm_package_config_productName%-win32-ia32/resources/app dist/win32/%npm_package_config_productName%-win32-ia32/resources/app.asar",
+    "build:win32": "npm run pack:win32 && npm run asar:win32",
+    "build": "npm run pack:reset && npm run build:win64 && npm run build:win32",
+    "build:setup": "build -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron-reload": "^1.4.0"
+  },
+  "devDependencies": {
+    "asar": "^1.0.0",
+    "electron": "^4.1.4",
+    "electron-packager": "^13.1.1"
+  }
+}
